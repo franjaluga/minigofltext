@@ -173,3 +173,71 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </StrictMode>
 );
 ```
+
+
+
+## Clases finales:  HOOKS
+
+¿Que es un hook?
+Es como un gancho a un estado de un dato.
+
+Si tengo por ejemplo en mi formulario un dato, y un boton, 
+con el hook puedo vincular el boton a un evento para que cambie el valor de dicho dato.
+
+Es una forma de comunicacion entre componentes.
+
+#La primera pregunta que uno suele hacerse es: **donde va esto?**
+
+En rigor, primero necesitamos un componente (que ya lo sabemos hacer),
+es aquel lugar que me imprime el contenido (donde van las etiquetas html).
+Entonces, antes de eso -antes de hacer el render-
+
+Primero llamamos la librería del HOOK que viene de react,
+en rigor los hooks siempre parten con "use"
+```js
+import { useState } from 'react';
+
+```
+luego, 
+mandamos a llamar en un arreglo que tiene dos datos 
+"un counter" y un "setSounter"
+este arreglo tiene por igual a la función que inicialmen te importamos useState().
+
+Esto lo podemos pasar a código de la siguiente forma:
+
+```js
+const [ counter, setCounter ] = useState();
+```
+luego, 
+solo bastaría que invoquemos la función y le asignemos un valor.
+
+Por ejemplo,
+si yo qusiera hacer que un dato de mi web aumente en +1.
+Primero, tengo que hacer el botón y darle un evento onClick.
+
+El evento onClick, lo que hace es mandar a llamar a una fución,
+entonces, tenemos que ponerle un nombre.
+Como necestamos que se agregue +1, 
+podemos usar un nombre de función llamado "handleAdd()".
+
+Una vez que le pusimo nombre, tenemos que crear la función (que hemos de invocar)
+como función de flecha
+
+```html
+<button onClick= { handleAdd }> 
+   +1 
+</button>
+
+```
+
+acá creamos una constante llamada handleAdd que es igual 
+a una función de flecha, que recibe un bloque { }
+
+Esta función, manda a llamar al setCounter y hace mover el valor
+```js
+const handleAdd = () => {
+    setCounter( counter + 1 );
+}
+```
+
+y eso es todo.
